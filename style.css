@@ -10,9 +10,9 @@ body {
     background-size: 125%;
 }
 
-.wrapper {
+.container {
     display: grid;
-    padding: 9% 13%;
+    padding: 7% 13%;
     grid-template: 1fr / 20% 75%;
     column-gap: 5%;
 }
@@ -35,10 +35,7 @@ body {
 
 .nav_menu_item {
     list-style-type: none;
-    padding-top: 12%;
-    padding-bottom: 13%;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding:13% 9%;
     color: rgb(30, 22, 13);
 }
 
@@ -48,11 +45,20 @@ body {
     background-image: url("assets/img/camouflage.jpg");
     color: white;
     border-radius: 3%;
+    transition: .3s ease-in-out;
+    -webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .main_wrapper {
     padding: 3%;
-    opacity: 0.8;
+    opacity: 0;
+    animation: menu 2.2s forwards;
+}
+
+@keyframes menu {
+    0% {opacity: 0;}
+    100% {opacity: 0.8;}
 }
 
 .main {
@@ -80,28 +86,28 @@ body {
     text-align: justify;
 }
 
-@media(max-width:1200px) {
+@media(max-width:1280px) {
     body {
         background-size: 160%;
     }
 
-    .wrapper {
-        padding: 15% 7%;
+    .container {
+        padding: 13% 7%;
     }
 
     .main_content_img {
         padding-top: 1%;
-        max-width: 280px;
+        max-width: 265px;
     }
 }
 
-@media(max-width:879px) {
+@media(max-width:913px) {
     body {
-        background-size: 300%;
+        background-size: 320%;
     }
 
-    .wrapper {
-        padding: 3% 8%;
+    .container {
+        padding: 2% 8%;
         grid-template: auto 100% / 1fr;
         row-gap: 3%;
     }
@@ -142,7 +148,17 @@ body {
         background-size: 400%;
     }
 
-    .wrapper {
+    .container {
+        padding: 7% 8%;
+    }
+}
+
+@media(max-width:420px) {
+    body {
+        background-size: 800%;
+    }
+
+    .container {
         padding: 7% 8%;
     }
 }
