@@ -184,6 +184,14 @@ body {
         transition: .3s ease-in-out;
     }
 
+    #burger_caption {
+        display: block;
+        float:right;
+        color: rgb(67, 74, 68);
+        padding-top: 25px;
+        text-align: right;
+    }
+
     #burger_img:hover {
         transition: .3s ease-in-out;
         -webkit-transform: scaleX(-1) scale(1.1);
@@ -192,8 +200,8 @@ body {
 
     .burger_img_active {
         transition: .3s ease-in-out;
-        -webkit-transform: scaleX(-1) rotate(-10deg) scale(1.1);
-        transform: scaleX(-1) rotate(-10deg) scale(1.1);
+        -webkit-transform: scaleX(-1) scale(1.1);
+        transform: scaleX(-1) scale(1.1);
     }
 }
 

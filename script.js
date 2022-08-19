@@ -58,7 +58,6 @@ window.addEventListener("DOMContentLoaded", () => {
     function showMenu() {
         burgerButton.addEventListener("click", function() {
             menu.classList.toggle('nav_menu_items_active');
-            burgerButton.classList.toggle('burger_img_active');
         })
     }
 
