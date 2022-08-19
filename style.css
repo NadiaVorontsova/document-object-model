@@ -162,7 +162,7 @@ body {
     }
 
     .nav_menu_items_active {
-        margin-top: 15%;
+        margin-top: 18%;
         display: block;
     }
 
@@ -215,3 +215,8 @@ body {
     }
 }
 
+@media(max-width:300px) {
+    .nav_menu_items_active {
+        margin-top: 30%;
+    }
+}
