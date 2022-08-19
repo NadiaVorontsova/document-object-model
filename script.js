@@ -1,6 +1,10 @@
 window.addEventListener("DOMContentLoaded", () => {
 
     const seriesCOD = [{
+        title: "Call of Duty",
+        image: "assets/img/defaultImage.jpg",
+        text: "Call of Duty is a series of first-person shooter video games produced by the American company Activision. The games in the series were developed by studios such as Infinity Ward, Treyarch and Sledgehammer Games. Early games in the series, starting with the very first game in 2003, focused on World War II; in the future, within the framework of the series, games were also released, the action of which took place during the Cold War, in the near future, even in space. Individual games in the series, united by a common time of action, are also connected to each other by narrative and characters."
+    }, {
         title: "Call of Duty: Modern Warfare II",
         image: "assets/img/MW2.jpg",
         text: "Call of Duty: Modern Warfare II is a first-person shooter that is the sequel to 2019's Call of Duty: Modern Warfare. The plot of the game revolves around a global conflict involving legendary performers from OTG-141. Large-scale single player campaign will take you to different parts of the world. Missions will range from small but critical tactical strikes to top-secret operations. In addition to the single player mode, you will also have access to exciting online modes and story-based special operations designed for co-op."
@@ -22,50 +26,44 @@ window.addEventListener("DOMContentLoaded", () => {
         text: "Call of Duty: Black Ops 4 is a multiplayer first-person shooter that continues the famous Call of Duty series without a story campaign. Instead, the game has introduced a Battle Royale mode called Blackout, in which you can take control of iconic characters from the entire Black Ops sub-series and fight in your favorite locations using iconic weapons. Also, you will find an updated zombie mode, where users need to look for powerful artifacts that are being hunted by some kind of evil."
     }]
 
-    const defaultContent = [{
-        title: "Call of Duty",
-        image: "assets/img/defaultImage.jpg",
-        text: "Call of Duty is a series of first-person shooter video games produced by the American company Activision. The games in the series were developed by studios such as Infinity Ward, Treyarch and Sledgehammer Games. Early games in the series, starting with the very first game in 2003, focused on World War II; in the future, within the framework of the series, games were also released, the action of which took place during the Cold War, in the near future, even in space. Individual games in the series, united by a common time of action, are also connected to each other by narrative and characters."
-    }]
+    const listOfItemsElement = document.querySelector('.nav_menu_items');
+    const titleOfSeriesElement = document.getElementById('series_title');
+    const imageOfSeriesElement = document.getElementById('series_image');
+    const textOfSeriesElement = document.getElementById('series_text');
 
-    const listOfItems = document.querySelector('.nav_menu_items');
-    const titleOfSeries = document.getElementById('series_title');
-    const imageOfSeries = document.getElementById('series_image');
-    const textOfSeries = document.getElementById('series_text');
-    
-    function createMenu(series, list) {
+    const burgerButton = document.getElementById('burger_img');
+    const menu = document.getElementById('menu');
+
+    function createMenu(series, parentElement) {
         for (const ser of series) {
             const li = document.createElement('li');
             li.textContent = ser.title;
-            list.append(li);
+            li.addEventListener("click", function () {
+                showContent(ser);
+                menu.classList.toggle('nav_menu_items_active');
+                burgerButton.classList.toggle('burger_img_active');
+            })
+            parentElement.append(li);
             li.classList.add('nav_menu_item');
         }
     }
 
-    function showDefaultContent(content) {
-        content.forEach(element => {
-                titleOfSeries.innerText = element.title;
-                imageOfSeries.src = element.image;
-                imageOfSeries.alt = element.title;
-                textOfSeries.innerText = element.text;
-        });
+    function showContent(data) {
+        titleOfSeriesElement.innerText = data.title;
+        imageOfSeriesElement.src = data.image;
+        imageOfSeriesElement.alt = data.title;
+        textOfSeriesElement.innerText = data.text;
     }
 
-    function showContent(series, list) {
-        list.addEventListener("click", function (event) {
-            series.forEach(element => {
-                if (event.target.innerText === element.title) {
-                    titleOfSeries.innerText = element.title;
-                    imageOfSeries.src = element.image;
-                    imageOfSeries.alt = element.title;
-                    textOfSeries.innerText = element.text;
-                }
-            });
+    function showMenu() {
+        burgerButton.addEventListener("click", function() {
+            menu.classList.toggle('nav_menu_items_active');
+            burgerButton.classList.toggle('burger_img_active');
         })
     }
 
-    createMenu(seriesCOD, listOfItems);
-    showDefaultContent(defaultContent);
-    showContent(seriesCOD, listOfItems);
+    createMenu(seriesCOD, listOfItemsElement);
+    showContent(seriesCOD[0]);
+    showMenu();
 });
 
