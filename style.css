@@ -215,7 +215,7 @@ body {
     }
 }
 
-@media(max-width:300px) {
+@media(max-width:385px) {
     .nav_menu_items_active {
         margin-top: 30%;
     }
